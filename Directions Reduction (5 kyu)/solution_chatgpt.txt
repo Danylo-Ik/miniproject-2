@@ -1,0 +1,18 @@
+can you please help me and write a code: you have four directions: North, South, East, West and it looks like it 
+["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"].
+or
+{ "NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST" };
+or
+[North, South, South, East, West, North, West] 
+
+if you go North and then South it means that it better to stay in this position. Also, if you go "East" and then "West" it also means to stay in this place. So, return will be 
+
+["WEST"]
+or
+{ "WEST" }
+or
+[West] 
+
+the function is 
+def dir_reduc(arr):
+    pass
