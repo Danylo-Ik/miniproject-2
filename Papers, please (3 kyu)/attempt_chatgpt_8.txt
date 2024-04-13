@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/workspace/default/tests.py", line 22, in <module>
+    test.assert_equals(inspector.inspect(josef), 'Glory to Arstotzka.');
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/default/solution.py", line 50, in inspect
+    if key == 'passport' and value['NATION'] not in self.allowed_nations:
+                             ~~~~~^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+

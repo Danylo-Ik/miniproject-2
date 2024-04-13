@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/default/tests.py", line 22, in <module>
+    test.assert_equals(inspector.inspect(josef), 'Glory to Arstotzka.');
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/default/solution.py", line 35, in inspect
+    if self.wanted_criminal in document:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'in <string>' requires string as left operand, not NoneType
