@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/default/tests.py", line 1, in <module>
+    from solution import *
+  File "/workspace/default/solution.py", line 96
+    return "Glory to Arstotzka." if not is_foreigner else
+                                                         ^
+SyntaxError: invalid syntax
+expand_more

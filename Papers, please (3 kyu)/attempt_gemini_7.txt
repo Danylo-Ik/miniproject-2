@@ -1,0 +1,8 @@
+raceback (most recent call last):
+  File "/workspace/default/tests.py", line 22, in <module>
+    test.assert_equals(inspector.inspect(josef), 'Glory to Arstotzka.');
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/default/solution.py", line 37, in inspect
+    if "EXP:" in info and datetime.datetime.strptime(info.split("EXP: ")[1], "%Y.%m.%d") <= datetime.datetime(1982, 11, 22):
+                          ^^^^^^^^
+NameError: name 'datetime' is not defined
