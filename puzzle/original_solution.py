@@ -1,5 +1,3 @@
-import timeit
-
 @profile
 def validate_board(board: list) -> bool:
     """
@@ -78,15 +76,16 @@ list(lines[j][start_row: start_row + 4]))
     return True
 
 
-if __name__ == "__main__":
-    board = [\
-"**** ****",\
-"***1 ****",\
-"**  3****",\
-"* 4 1****",\
-"     9 5 ",\
-" 6  83  *",\
-"3   1  **",\
-"  8  2***",\
-"  2  ****"]
-    validate_board(board)
+if __name__ == '__main__':
+    board1 = [
+    "**** ****",
+    "***1 ****",
+    "**  3****",
+    "* 4 1****",
+    "     9 5 ",
+    " 6  83  *",
+    "3   1  **",
+    "  8  2***",
+    "  2  ****"
+]
+    validate_board(board1)

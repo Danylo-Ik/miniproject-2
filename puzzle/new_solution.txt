@@ -1,0 +1,192 @@
+ChatGPT:
+
+1: Execution time: 0.00010589137673377991 seconds
+    prompt: def validate_board(board: list) -> bool:
+    """
+    list(str) -> bool
+    >>> board = [\
+"**** ****",\
+"***1 ****",\
+"**  3****",\
+"* 4 1****",\
+"     9 5 ",\
+" 6  83  *",\
+"3   1  **",\
+"  8  2***",\
+"  2  ****"]
+    >>> validate_board(board)
+    False
+
+    >>> board = [\
+"**** ****",\
+"***1 ****",\
+"**  3****",\
+"* 4 1****",\
+"     9 5 ",\
+" 6  83  *",\
+"3      **",\
+"  8  2***",\
+"  2  ****"]
+    >>> validate_board(board)
+    True
+    """
+    lines = []
+    rows = []
+    #Check for repeats in lines
+    for i in board:
+        lines.append(list(i))
+    for line in lines:
+        for el in line:
+            if el.isdigit():
+                if line.count(el) > 1 or 0 > int(el) or int(el) > 10:
+                    return False
+    #Check for repeats in rows
+    for i in range(len(lines[0])):
+        row = []
+        for line in lines:
+            row.append(line[i])
+        rows.append(row)
+    for row in rows:
+        for el in row:
+            if el.isdigit():
+                if row.count(el) > 1 or 0 > int(el) or int(el) > 10:
+                    return False
+    return check_colors(lines, rows)
+
+
+def check_colors(lines: list, rows: list) -> bool:
+    """
+    Check for repeats in same colored tiles
+    """
+    start_line = 4
+    start_row = 1
+    i = 0
+    j = 8
+    colors = []
+    while i < 5:
+        colors.append(list(rows[i][start_line: start_line + 5]) + \
+list(lines[j][start_row: start_row + 4]))
+        start_line -= 1
+        start_row += 1
+        i += 1
+        j -= 1
+    for color in colors:
+        for el in color:
+            if el.isdigit():
+                if color.count(el) > 1 or 0 > int(el) or int(el) > 10:
+                    return False
+    return True
+
+Optimize this code
+
+
+
+
+2: Execution time: 0.00010377215221524239 seconds
+    prompt: doesn't work for all possible tests
+
+
+
+
+3: Execution time: 0.00010600406676530838 seconds
+    prompt: fix it and optimize it even more
+
+
+
+
+4: Execution time: 0.00010621920228004456 seconds
+    prompt: rewrite this and optimize, you still haven't considered one possible test
+
+
+
+
+5: Execution time: 0.00010414095595479012 seconds
+    prompt: you don't pass one test, try different approach
+
+
+
+
+6: Execution time: 0.00010413303971290588 seconds
+    prompt and new chat: def validate_board(board: list) -> bool:
+    """
+    list(str) -> bool
+    >>> board = [\
+"**** ****",\
+"***1 ****",\
+"**  3****",\
+"* 4 1****",\
+"     9 5 ",\
+" 6  83  *",\
+"3   1  **",\
+"  8  2***",\
+"  2  ****"]
+    >>> validate_board(board)
+    False
+
+    >>> board = [\
+"**** ****",\
+"***1 ****",\
+"**  3****",\
+"* 4 1****",\
+"     9 5 ",\
+" 6  83  *",\
+"3      **",\
+"  8  2***",\
+"  2  ****"]
+    >>> validate_board(board)
+    True
+    """
+    lines = []
+    rows = []
+    #Check for repeats in lines
+    for i in board:
+        lines.append(list(i))
+    for line in lines:
+        for el in line:
+            if el.isdigit():
+                if line.count(el) > 1 or 0 > int(el) or int(el) > 10:
+                    return False
+    #Check for repeats in rows
+    for i in range(len(lines[0])):
+        row = []
+        for line in lines:
+            row.append(line[i])
+        rows.append(row)
+    for row in rows:
+        for el in row:
+            if el.isdigit():
+                if row.count(el) > 1 or 0 > int(el) or int(el) > 10:
+                    return False
+    return check_colors(lines, rows)
+
+
+def check_colors(lines: list, rows: list) -> bool:
+    """
+    Check for repeats in same colored tiles
+    """
+    start_line = 4
+    start_row = 1
+    i = 0
+    j = 8
+    colors = []
+    while i < 5:
+        colors.append(list(rows[i][start_line: start_line + 5]) + \
+list(lines[j][start_row: start_row + 4]))
+        start_line -= 1
+        start_row += 1
+        i += 1
+        j -= 1
+    for color in colors:
+        for el in color:
+            if el.isdigit():
+                if color.count(el) > 1 or 0 > int(el) or int(el) > 10:
+                    return False
+    return True
+
+rewrite and optimize this code
+
+
+
+
+7: Execution time: 0.00010482268407940865 seconds
+    prompt: Optimize it and try new approach
