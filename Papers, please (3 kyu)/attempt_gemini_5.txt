@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "/workspace/default/tests.py", line 1, in <module>
-    from solution import *
-  File "/workspace/default/solution.py", line 92
-    if entrant.get("diplomatic_authorization") and not self.valid_diplomatic_authorization(entrant):
-                                                                                                    ^
-IndentationError: expected an indented block after 'if' statement on line 92
