@@ -1,4 +1,5 @@
 # miniproject-2
+## Вимірювання часу
 ### Зразок коду
 ```
 import timeit
@@ -12,10 +13,37 @@ for i in range(1000000):
 execution_time = timeit.timeit(code_to_measure, number=1)
 print(f"Execution time: {execution_time} seconds")
 ```
+## Вимірювання памʼяті
+### Встановлюємо бібліотеку
+```
+pip install memory_profiler
+```
+### Використовуємо декоратор @profile
+```
+# my_script.py
+import numpy as np
+import time
 
-### Порядок дій
+@profile
+def allocate_memory():
+    a = np.random.rand(1000000)
+    time.sleep(10)  # Simulate some computation
+
+if __name__ == "__main__":
+    allocate_memory()
+```
+### Запускаємо командою
+```
+mprof run my_script.py
+```
+### Дивимось результат
+```
+mprof plot
+```
+
+## Порядок дій
 1) вставка початкового коду у файл original solution.py
-2) запускаємо з модулем timeit, записуємо час в original_solution.txt
+2) запускаємо з модулем timeit та memory_profiler, записуємо час та інфу в original_solution.txt
 3) оптимізуємо чатом та джеміні по черзі, поки не буде покращення (за потреби створюємо нові файли attempt як у попередньому етапі)
 4) результати записуємо у файл new_solution_chatgpt.py та new_solution_gemini.py
 5) так само новий час записуємо у файл new_solution.txt відповідно для чату та джеміні, підписані коментами хто де
