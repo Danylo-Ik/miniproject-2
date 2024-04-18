@@ -1,7 +1,9 @@
 '''
 This function takes the first letter of each word in a string and returns an acronym
 '''
+import timeit
 
+test_code = """
 def create_acronym(message: str) -> str:
     if not isinstance(message, str):
         return None
@@ -21,5 +23,9 @@ def create_acronym(message: str) -> str:
 
     return acronym
 
+create_acronym("Факультет Прикладних Наук Українського Католицького Університету")
+"""
+
 if __name__ == '__main__':
-    create_acronym("Факультет Прикладних Наук Українського Католицького Університету")
+    execution_time = timeit.timeit(stmt=test_code, number=1000)
+    print(f"Execution time: {execution_time} seconds")

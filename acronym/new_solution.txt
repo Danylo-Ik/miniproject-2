@@ -1,0 +1,9 @@
+###chatgpt###
+
+optimize the following function to take up less memory and run faster. 
+you may use any instrument. also improve style and documentation:
+
+Execution time: 0.0013351250090636313 seconds
+
+###gemini###
+

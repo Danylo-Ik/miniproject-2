@@ -10,7 +10,7 @@ for i in range(1000000):
     pass
 """
 # Measure the execution time
-execution_time = timeit.timeit(code_to_measure, number=1)
+execution_time = timeit.timeit(code_to_measure, number=1000)
 print(f"Execution time: {execution_time} seconds")
 ```
 ## Вимірювання памʼяті
