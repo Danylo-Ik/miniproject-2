@@ -1,9 +1,7 @@
 '''
 This function takes the first letter of each word in a string and returns an acronym
 '''
-import timeit
 
-@profile
 def create_acronym(message: str) -> str:
     if not isinstance(message, str):
         return None
