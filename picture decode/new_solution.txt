@@ -1,0 +1,58 @@
+////////////////////// Original code ///////////////////////
+
+ - Average execution time: 105 ms
+ - Average memory used: 0.003 MB
+
+//////////////////////// Chatgpt ///////////////////////////
+
+ -------- Prompt 1 --------
+
+Optimize the following function to take up less memory and run faster. 
+You may use any instrument. Also improve style and documentation:
+
+       --- Result ---
+
+ - Grade: 1/1
+ - Average execution time: 104.75 ms (-0.24%)
+ - Average memory used: 0.00265 MB (-12%)
+
+ -------- Prompt 2 --------
+
+Good job. Now it uses 10% less memory, but executes as fast as before.
+Can you optimize it more?
+
+       --- Result ---
+
+ - Grade: 1/1
+ - Average execution time: 106 ms (+1%)
+ - Average memory used: 0.0024 MB (-20%)
+
+ -------- Prompt ... --------
+
+ All subsequent prompts worsened the score and performance
+
+//////////////////////// Gemini ///////////////////////////
+
+ -------- Prompt 1 --------
+
+Optimize the following function to take up less memory and run faster. 
+You may use any instrument. Also improve style and documentation:
+
+       --- Result ---
+
+ - Grade: 0/1
+ - But -50% execution time :)
+
+ -------- 15+ Prompts --------
+
+After many, many tries this is the only code that could at least paint
+the test file. It only worked after I started threatening Gemini.
+
+After the argument it apologized profusely and I began to feel sorry for it,
+so I treated it like a baby afterwards. Maybe that's what made him work, I don't know
+
+       --- Result ---
+
+ - Grade: 0.52/1
+ - Average execution time: 104.4 ms (-0.6%)
+ - Average memory used: 0.0017 MB (-44%)

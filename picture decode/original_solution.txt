@@ -1,0 +1,2 @@
+ - Average execution time: 105 ms
+ - Average memory used: 0.003 MB
