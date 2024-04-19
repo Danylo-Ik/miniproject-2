@@ -5,5 +5,31 @@ you may use any instrument. also improve style and documentation:
 
 Execution time: 0.0013351250090636313 seconds
 
+
 ###gemini###
 
+optimize this function, make it faster and more memory efficient. 
+keep the same logic:
+
+
+this is better, but it doesn't pass some tests:
+Test1: Failed acronym.create_acronym('random access memory\nAs soon As possible')
+Test2: Failed acronym.create_acronym("Факультет прикладних наук\nУкраїнський Католицький Університет")
+Test3: Failed acronym.create_acronym("Основи Програмування\nДискретна Математика\nMath analysis\nComputer science\nBusiness analysis")
+Test4: OK
+Test5: Failed
+'int' object has no attribute 'isalpha' on line 89
+Test6: Failed acronym.create_acronym('random access memory')
+
+
+there is an issue with the way the function handles spaces. 
+Spaces between words are incorrectly not considered alphanumeric and therefore the result is None
+
+
+there is an issue here, the function only returns the acronym of the first word and not the whole sentence. 
+Example: "Факультет Прикладних Наук Українського Католицького Університету"
+Actual Result: Ф - Факультет Прикладних Наук Українського Католицького Університету
+Correct Result: ФПНУКУ - Факультет Прикладних Наук Українського Католицького Університету
+
+
+Execution time: 0.0035014169989153743 seconds
