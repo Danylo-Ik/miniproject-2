@@ -1,4 +1,6 @@
-@profile
+import timeit
+from memory_profiler import memory_usage
+
 def create_acronym(message: str) -> str:
     """Creates an acronym from the first letter of each word in each sentence.
 
@@ -29,5 +31,22 @@ def create_acronym(message: str) -> str:
 
     return acronyms[:-1]  # Remove trailing newline
 
-if __name__ == "__main__":
-    create_acronym("Факультет Прикладних Наук Українського Католицького Університету")
+
+test_code = lambda: create_acronym("Факультет Прикладних Наук Українського Католицького Університету")
+
+sum_time = 0
+sum_memory = 0
+for i in range(100):
+    start_time = timeit.default_timer()
+    start_memory = memory_usage()[0]
+    test_code()
+    end_time = timeit.default_timer()
+    end_memory = memory_usage()[0]
+    execution_time = end_time - start_time
+    memory_used = end_memory - start_memory
+    sum_time += execution_time
+    sum_memory += memory_used
+
+print(f"Average execution time: {sum_time/100} seconds")
+print(f"Average memory used: {sum_memory/100} MB")
+

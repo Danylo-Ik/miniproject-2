@@ -3,8 +3,8 @@
 optimize the following function to take up less memory and run faster. 
 you may use any instrument. also improve style and documentation:
 
-Execution time: 0.0013351250090636313 seconds
-
+Average execution time: 0.10393301465257537 seconds
+Average memory used: 0.00046875 MB
 
 ###gemini###
 
@@ -32,4 +32,5 @@ Actual Result: Ф - Факультет Прикладних Наук Украї�
 Correct Result: ФПНУКУ - Факультет Прикладних Наук Українського Католицького Університету
 
 
-Execution time: 0.0035014169989153743 seconds
+Average execution time: 0.10432929048052757 seconds
+Average memory used: 0.00046875 MB
