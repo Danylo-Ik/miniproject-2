@@ -1,5 +1,5 @@
 '''working with names'''
-import timeit, memory_profiler
+# import timeit, memory_profiler
 
 def read_file(file_path):
     '''reads file and returns dictionary of names, where key is number 
