@@ -1,0 +1,223 @@
+######СHATGPT######
+
+////////1 prompt////////
+-----
+hello, here you have code for encode and decode caesar code: 
+def caesar_encode(message: str, key: int) -> str:
+    '''
+    str, int -> str
+    create a program that will encode caesar code
+
+    >>> caesar_encode("computer", 3)
+    'frpsxwhu'
+
+    >>> caesar_encode("zebra", 1)
+    'afcsb'
+
+    >>> caesar_encode("apple", 1)
+    'bqqmf'
+
+    >>> caesar_encode("applied science", 40)
+    'oddzwsr gqwsbqs'
+    '''
+    new_message = ''
+    code = ''
+    if isinstance(message, str) and isinstance(key, int):
+        for char in message:
+            if 97<=ord(char)<=122:
+                new_message = chr(((ord(char) - ord('a') + key) % 26) + ord('a'))
+                code += new_message
+            if char.isspace():
+                new_message_space = ' '
+                code += new_message_space
+        return code
+
+def caesar_decode(message: str, key: int) -> str:
+    '''
+    str, int -> str
+    create a program that will decode caesar code
+
+    >>> caesar_decode("frpsxwhu", 3)
+    'computer'
+
+    >>> caesar_decode("afcsb", 1)
+    'zebra'
+
+    >>> caesar_decode("bqqmf", 1)
+    'apple'
+
+    >>> caesar_decode("oddzwsr gqwsbqs", 40)
+    'applied science'
+    '''
+    new_message = ''
+    code = ''
+    if isinstance(message, str) and isinstance(key, int):
+        for char in message:
+            if 97<=ord(char)<=122:
+                new_message = chr(((ord(char) - ord('a') - key) % 26) + ord('a'))
+                code += new_message
+            if char.isspace():
+                new_message_space = ' '
+                code += new_message_space
+        return code
+also you have some doctest and you can see how it works. so, can you please optimize code
+------
+Average execution time: 0.1022716214803222 seconds
+Average memory used: 0.0 MB
+
+
+######GEMINI######
+
+////////1 prompt////////
+hello, here you have code for encode and decode caesar code: 
+def caesar_encode(message: str, key: int) -> str:
+    '''
+    str, int -> str
+    create a program that will encode caesar code
+
+    >>> caesar_encode("computer", 3)
+    'frpsxwhu'
+
+    >>> caesar_encode("zebra", 1)
+    'afcsb'
+
+    >>> caesar_encode("apple", 1)
+    'bqqmf'
+
+    >>> caesar_encode("applied science", 40)
+    'oddzwsr gqwsbqs'
+    '''
+    new_message = ''
+    code = ''
+    if isinstance(message, str) and isinstance(key, int):
+        for char in message:
+            if 97<=ord(char)<=122:
+                new_message = chr(((ord(char) - ord('a') + key) % 26) + ord('a'))
+                code += new_message
+            if char.isspace():
+                new_message_space = ' '
+                code += new_message_space
+        return code
+
+def caesar_decode(message: str, key: int) -> str:
+    '''
+    str, int -> str
+    create a program that will decode caesar code
+
+    >>> caesar_decode("frpsxwhu", 3)
+    'computer'
+
+    >>> caesar_decode("afcsb", 1)
+    'zebra'
+
+    >>> caesar_decode("bqqmf", 1)
+    'apple'
+
+    >>> caesar_decode("oddzwsr gqwsbqs", 40)
+    'applied science'
+    '''
+    new_message = ''
+    code = ''
+    if isinstance(message, str) and isinstance(key, int):
+        for char in message:
+            if 97<=ord(char)<=122:
+                new_message = chr(((ord(char) - ord('a') - key) % 26) + ord('a'))
+                code += new_message
+            if char.isspace():
+                new_message_space = ' '
+                code += new_message_space
+        return code
+also you have some doctest and you can see how it works. so, can you please optimize code
+
+////////2 prompt////////
+whether can you optimize the code even further
+
+////////3 prompt////////
+def caesar_encode(message: str, key: int) -> str:
+    '''
+    str, int -> str
+    create a program that will encode caesar code
+
+    >>> caesar_encode("computer", 3)
+    'frpsxwhu'
+
+    >>> caesar_encode("zebra", 1)
+    'afcsb'
+
+    >>> caesar_encode("apple", 1)
+    'bqqmf'
+
+    >>> caesar_encode("applied science", 40)
+    'oddzwsr gqwsbqs'
+    '''
+    new_message = ''
+    code = ''
+    if isinstance(message, str) and isinstance(key, int):
+        for char in message:
+            if 97<=ord(char)<=122:
+                new_message = chr(((ord(char) - ord('a') + key) % 26) + ord('a'))
+                code += new_message
+            if char.isspace():
+                new_message_space = ' '
+                code += new_message_space
+        return code
+
+def caesar_decode(message: str, key: int) -> str:
+    '''
+    str, int -> str
+    create a program that will decode caesar code
+
+    >>> caesar_decode("frpsxwhu", 3)
+    'computer'
+
+    >>> caesar_decode("afcsb", 1)
+    'zebra'
+
+    >>> caesar_decode("bqqmf", 1)
+    'apple'
+
+    >>> caesar_decode("oddzwsr gqwsbqs", 40)
+    'applied science'
+    '''
+    new_message = ''
+    code = ''
+    if isinstance(message, str) and isinstance(key, int):
+        for char in message:
+            if 97<=ord(char)<=122:
+                new_message = chr(((ord(char) - ord('a') - key) % 26) + ord('a'))
+                code += new_message
+            if char.isspace():
+                new_message_space = ' '
+                code += new_message_space
+        return code
+look you have this code, could you please optimize it because it works a little bit long
+
+////////4 prompt////////
+this code that you mention have some errors: 
+result = ''.join(chr(((ord(char) - ord('a') + key) % 26) + ord('a')) for char in message if char.islower() else char for char in message)
+                                                        ^^^^
+SyntaxError: invalid syntax
+ 
+ whether you can rewrite it to optimize and eliminate the error
+
+////////5 prompt////////
+add doctests like there def caesar_encode(message: str, key: int) -> str:
+    '''
+    str, int -> str
+    create a program that will encode caesar code
+
+    >>> caesar_encode("computer", 3)
+    'frpsxwhu'
+
+    >>> caesar_encode("zebra", 1)
+    'afcsb'
+
+    >>> caesar_encode("apple", 1)
+    'bqqmf'
+
+    >>> caesar_encode("applied science", 40)
+    'oddzwsr gqwsbqs'
+    '''
+-------
+Average execution time: 0.10310854632014525 seconds
+Average memory used: 0.0 MB
