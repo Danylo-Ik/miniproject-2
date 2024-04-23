@@ -1,1 +1,0 @@
-In Python write an Inspector class with these methods: receive_bulletin(the bulletin will be provided in a form of string), inspect(check the entrants documents). Based on game Papers, Please

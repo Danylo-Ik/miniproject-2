@@ -1,4 +1,0 @@
-Doesn't work, because:
-'Cause no trouble.' should equal 'Entry denied: missing required passport.' for guyovich
-'Glory to Arstotzka.' should equal 'Detainment: ID number mismatch.' for roman
-
