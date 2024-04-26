@@ -1,0 +1,22 @@
+_____________ Prompt 1 _____________
+
+Can you create unittests for this code?
+Try to include every possible test with all edge cases:
+... code ...
+
+_____________ Result _____________
+
+ - Passed tests: 4/5
+ - Total coverage: 85%
+ - No tests for read_file()
+
+_____________ Prompt 2 _____________
+
+Include a test when the file is not empty and delete the last testcase.
+Fill the file yourself, here is the structure:
+... example of file structure ...
+
+_____________ Result _____________
+
+ - Passed tests: 5/5
+ - Total coverage: 100%
