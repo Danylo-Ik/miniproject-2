@@ -1,0 +1,99 @@
+________________ Prompt 1 _________________
+
+Develop a recursive function flatten(lst)
+The flatten(lst) function must take a list lst, which may contain other lists, which may also contain other lists, and which may also contain lists... As a result, the function must return a single list consisting of all non-empty elements of each of the input lists. The elements must be ordered as in the original list. If you did not pass a list, then you must return the argument itself. The original list must remain unchanged.
+
+write unittests for flatten()
+
+_________________ Result __________________
+
+import unittest
+from solution import flatten
+
+class TestFlattenFunction(unittest.TestCase):
+    
+    def test_single_element(self):
+        # When input is not a list, should return the element in a list.
+        self.assertEqual(flatten(5), [5])
+        self.assertEqual(flatten("a"), ["a"])
+    
+    def test_simple_list(self):
+        # When input is a simple list, return the same list.
+        self.assertEqual(flatten([1, 2, 3]), [1, 2, 3])
+    
+    def test_empty_list(self):
+        # Empty list should return an empty list.
+        self.assertEqual(flatten([]), [])
+    
+    def test_nested_lists(self):
+        # Test with nested lists.
+        self.assertEqual(flatten([1, [2, [3, 4], 5], 6]), [1, 2, 3, 4, 5, 6])
+        self.assertEqual(flatten([[[]], []]), [])
+        self.assertEqual(flatten([[[[[]]]], 1, [2, [3]]]), [1, 2, 3])
+    
+    def test_mixed_types(self):
+        # Test with mixed types.
+        self.assertEqual(flatten([1, "two", [3, "four"]]), [1, "two", 3, "four"])
+    
+    def test_deeply_nested_lists(self):
+        # Test with deeply nested lists.
+        self.assertEqual(flatten([1, [2, [3, [4, [5]]]]]), [1, 2, 3, 4, 5])
+    
+    def test_list_with_none(self):
+        # Test lists containing None or other special values.
+        self.assertEqual(flatten([None, [1, None, [None]]]), [None, 1, None])
+
+# If running as a script, execute the unittests.
+if __name__ == "__main__":
+    unittest.main()
+
+
+________________ Prompt 2 _________________
+
+Can you create unittests for this code?
+Try to include every possible test with all edge cases:
+
+... code ...
+
+_________________ Result __________________
+
+import unittest
+from solution import flatten
+
+class TestFlatten(unittest.TestCase):
+
+    def test_single_level(self):
+        self.assertEqual(flatten([1, 2, 3]), [1, 2, 3])
+    
+    def test_nested_lists(self):
+        self.assertEqual(flatten([1, [2, 3], [4, [5, 6]]]), [1, 2, 3, 4, 5, 6])
+    
+    def test_empty_lists(self):
+        self.assertEqual(flatten([]), [])
+    
+    def test_empty_nested_lists(self):
+        self.assertEqual(flatten([[], [[]], [[[]]]]), [])
+    
+    def test_mix_of_types(self):
+        self.assertEqual(flatten([1, "string", [3.14, [True, False]]]), [1, "string", 3.14, True, False])
+    
+    def test_single_element(self):
+        self.assertEqual(flatten([42]), [42])
+    
+    def test_already_flat(self):
+        self.assertEqual(flatten([1, 2, 3, 4]), [1, 2, 3, 4])
+    
+    def test_mixed_levels(self):
+        self.assertEqual(flatten([[1], 2, [[3]], 4]), [1, 2, 3, 4])
+    
+    def test_list_with_none(self):
+        self.assertEqual(flatten([None, [1, None], [2, 3, None]]), [None, 1, None, 2, 3, None])
+    
+    def test_non_list_input(self):
+        # Handling non-list input, expected to return the input as it is
+        self.assertEqual(flatten(10), 10)
+        self.assertEqual(flatten("string"), "string")
+
+# If running as a script, execute the unittests.
+if __name__ == "__main__":
+    unittest.main()
