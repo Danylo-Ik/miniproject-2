@@ -1,0 +1,85 @@
+import unittest
+import os
+from solution import *
+
+class TestGraphFunctions(unittest.TestCase):
+
+    def setUp(self):
+        self.graph_file_path = "/Users/danyilikonnikov/Desktop/Projects/Sem_2/Miniproject_2/miniproject-2/graph/data1.txt"
+
+    # Helper function to read graph from file
+    def read_graph_from_file(self):
+        return get_graph_from_file(self.graph_file_path)
+
+    # Helper function to assert graph equality
+    def assertGraphEqual(self, graph1, graph2):
+        self.assertEqual(to_edge_dict(graph1), to_edge_dict(graph2))
+
+    # Test cases for get_graph_from_file
+    def test_get_graph_from_file(self):
+        expected_edges = [[1, 2], [3, 4], [1, 5]]
+        self.assertEqual(self.read_graph_from_file(), expected_edges)
+
+    # Test cases for to_edge_dict
+    def test_to_edge_dict(self):
+        edge_list = [[1, 2], [3, 4], [1, 5]]
+        expected_dict = {1: [2, 5], 2: [1], 3: [4], 4: [3], 5: [1]}
+        self.assertEqual(to_edge_dict(edge_list), expected_dict)
+
+    # Test cases for is_edge_in_graph
+    def test_is_edge_in_graph(self):
+        graph = {1: [2, 5], 2: [1], 3: [4], 4: [3], 5: [1]}
+        self.assertTrue(is_edge_in_graph(graph, [1, 2]))
+
+    # Test cases for add_edge
+    def test_add_edge(self):
+        graph = {1: [2, 5], 2: [1], 3: [4], 4: [3], 5: [1]}
+        new_edge = [1, 3]
+        expected_graph = {1: [2, 5, 3], 2: [1], 3: [4, 1], 4: [3], 5: [1]}
+        self.assertGraphEqual(add_edge(graph, new_edge), expected_graph)
+
+    # Test cases for del_edge
+    def test_del_edge(self):
+        graph = {1: [2, 5, 3], 2: [1], 3: [4, 1], 4: [3], 5: [1]}
+        edge_to_delete = [1, 3]
+        expected_graph = {1: [2, 5], 2: [1], 3: [4], 4: [3], 5: [1]}
+        self.assertGraphEqual(del_edge(graph, edge_to_delete), expected_graph)
+
+    # Test cases for add_node
+    def test_add_node(self):
+        graph = {1: [2, 5], 2: [1], 3: [4], 4: [3], 5: [1]}
+        new_node = 6
+        expected_graph = {1: [2, 5], 2: [1], 3: [4], 4: [3], 5: [1], 6: []}
+        self.assertGraphEqual(add_node(graph, new_node), expected_graph)
+
+    # Test cases for del_node
+    def test_del_node(self):
+        graph = {1: [2, 5], 2: [1], 3: [4], 4: [3], 5: [1]}
+        node_to_delete = 5
+        expected_graph = {1: [2], 2: [1], 3: [4], 4: [3]}
+        self.assertGraphEqual(del_node(graph, node_to_delete), expected_graph)
+
+    # Test cases for convert_to_dot
+    def test_convert_to_dot(self):
+        convert_to_dot(self.graph_file_path)
+        dot_file_path = self.graph_file_path.split('.')[0] + ".dot"
+        self.assertTrue(os.path.exists(dot_file_path))
+
+        # Check if the contents of the DOT file are correct compared to the original file
+        graph = self.read_graph_from_file()
+        expected_dot_contents = "digraph {\n"
+        for node, edges in to_edge_dict(graph).items():
+            for edge in edges:
+                expected_dot_contents += f"{node} -> {edge}\n"
+        expected_dot_contents += "}"
+
+        with open(dot_file_path, 'r') as dot_file:
+            actual_dot_contents = dot_file.read()
+
+        self.assertEqual(actual_dot_contents, expected_dot_contents)
+
+        # Clean up created DOT file after testing
+        os.remove(dot_file_path)
+
+if __name__ == '__main__':
+    unittest.main()
