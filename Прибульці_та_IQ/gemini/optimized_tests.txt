@@ -1,0 +1,62 @@
+import unittest
+from solution import rescue_people, read_file
+import tempfile
+
+class TestAlienRescue(unittest.TestCase):
+
+    def create_test_file(self):
+        """Create a temporary file with test data."""
+        data = [
+            "Einstein,140",
+            "Jobs, 135"
+        ]
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            temp_file.write('\n'.join(data).encode('utf-8'))
+            return temp_file.name
+
+    def test_empty_file(self):
+        """Test with an empty file using read_file."""
+        data = {}
+        rides, evacuees = rescue_people(data, 100)
+        self.assertEqual(rides, 0)
+        self.assertEqual(evacuees, [])
+    
+    def test_non_empty_file(self):
+        """Test with a non-empty file using read_file."""
+        # Assuming a file named "test_data.txt" exists with valid content
+        test_file = self.create_test_file()
+        data = read_file(test_file)
+        rides, evacuees = rescue_people(data, 275)
+        self.assertEqual(rides, 1)
+        self.assertEqual(evacuees, [["Einstein", "Jobs"]])
+
+    def test_no_high_iq(self):
+        """Test with everyone having IQ below 130."""
+        data = {"John": 120, "Jane": 115}
+        rides, evacuees = rescue_people(data, 100)
+        self.assertEqual(rides, 0)
+        self.assertEqual(evacuees, [])
+
+    def test_single_person_below_limit(self):
+        """Test with a single person with low IQ."""
+        data = {"Einstein": 125}  # IQ below minimum threshold
+        rides, evacuees = rescue_people(data, 100)
+        self.assertEqual(rides, 0)  # No rides since IQ is below minimum
+        self.assertEqual(evacuees, [])
+
+    def test_single_person_high_iq(self):
+        """Test with a single person with high IQ."""
+        data = {"Einstein": 160}
+        rides, evacuees = rescue_people(data, 100)
+        self.assertEqual(rides, 0)  # No rides since limit is too low
+        self.assertEqual(evacuees, [])
+
+    def test_multiple_people_one_ride(self):
+        """Test with multiple people fitting on one ride."""
+        data = {"Einstein": 140, "Jobs": 135}
+        rides, evacuees = rescue_people(data, 275)
+        self.assertEqual(rides, 1)
+        self.assertEqual(evacuees, [["Einstein", "Jobs"]])
+
+if __name__ == '__main__':
+    unittest.main()

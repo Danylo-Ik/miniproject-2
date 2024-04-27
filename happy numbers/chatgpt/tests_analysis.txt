@@ -1,0 +1,17 @@
+________________ Prompt 1 _________________
+
+Can you create unittests for this code?
+Try to include every possible test with all edge cases:
+... code ...
+
+_________________ Result __________________
+
+
+Name                  Stmts   Miss  Cover   Missing
+---------------------------------------------------
+chatgpt\solution.py      26      0   100%
+chatgpt\tests.py         21      0   100%
+---------------------------------------------------
+TOTAL                    47      0   100%
+
+        Passed on the first attempt
