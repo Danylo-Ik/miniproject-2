@@ -1,0 +1,17 @@
+________________ Prompt 1 _________________
+
+Can you create unittests for this code?
+Try to include every possible test with all edge cases:
+... code ...
+
+_________________ Result __________________
+
+
+Name                 Stmts   Miss  Cover   Missing
+--------------------------------------------------
+gemini\solution.py      26      0   100%
+gemini\tests.py         15      0   100%
+--------------------------------------------------
+TOTAL                   41      0   100%
+
+        Passed on the first attempt
