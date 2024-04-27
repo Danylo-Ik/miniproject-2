@@ -1,0 +1,32 @@
+________________ Prompt 1 _________________
+
+Develop a recursive function flatten(lst)
+The flatten(lst) function must take a list lst, which may contain other lists, which may also contain other lists, and which may also contain lists... As a result, the function must return a single list consisting of all non-empty elements of each of the input lists. The elements must be ordered as in the original list. If you did not pass a list, then you must return the argument itself. The original list must remain unchanged.
+
+write unittests for flatten()
+
+_________________ Result __________________
+
+Name                          Stmts   Miss  Cover   Missing
+-----------------------------------------------------------
+flatten/chatgpt/solution.py       9      0   100%
+flatten/chatgpt/tests.py         22      1    95%   9
+-----------------------------------------------------------
+TOTAL                            31      1    97%
+
+
+________________ Prompt 2 _________________
+
+Can you create unittests for this code?
+Try to include every possible test with all edge cases:
+
+... code ...
+
+_________________ Result __________________
+
+Name                          Stmts   Miss  Cover   Missing
+-----------------------------------------------------------
+flatten/chatgpt/solution.py       9      0   100%
+flatten/chatgpt/tests.py         26      0   100%
+-----------------------------------------------------------
+TOTAL                            35      0   100%
