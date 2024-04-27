@@ -143,19 +143,14 @@ def convert_to_dot(filename: str) -> None:
     3 -> 4
     }
     """
-    graph_str = ""
-    graph_edges = sorted(get_graph_from_file(filename), key=sort_by_first_el)
-    for [x, y] in graph_edges:
-        graph_str += str(x) + " -> " + str(y)
-        graph_str += '\n'
-    extension_lst = filename.split(".")
-    extension_lst.pop()
-    extension_lst.append("dot")
-    new_filename = ".".join(extension_lst)
-    with open(new_filename, 'w', encoding='utf-8') as file:
-        file.write(filename)
-        file.write(" ")
-        file.write('digraph {')
-        file.write('\n')
-        file.write(graph_str)
+    graph=to_edge_dict(get_graph_from_file(filename))
+    with open(filename.split('.')[0]+'.dot',mode='w',encoding='utf-8') as file:
+        file.write('digraph {\n')
+        dict_values=list(graph.values())
+        dict_keys=list(graph.keys())
+        dict_keys_len=len(dict_keys)
+        for i in range(dict_keys_len):
+            for j in range(len(dict_values[i])):
+                file.write(f'{dict_keys[i]} -> {dict_values[i][j]}\n')
         file.write('}')
+

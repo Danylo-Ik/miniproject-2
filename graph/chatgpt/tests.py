@@ -77,11 +77,12 @@ class TestGraphFunctions(unittest.TestCase):
         self.assertTrue(os.path.exists(dot_file_path))
 
         # Check if the contents of the DOT file are correct compared to the original file
-        expected_dot_contents = ""
-        with open(original_file_path, 'r') as original_file:
-            for line in original_file:
-                edge = line.strip().split(',')
-                expected_dot_contents += f"{edge[0]} -> {edge[1]};\n"
+        graph = get_graph_from_file(original_file_path)
+        expected_dot_contents = "digraph {\n"
+        for node, edges in to_edge_dict(graph).items():
+            for edge in edges:
+                expected_dot_contents += f"{node} -> {edge}\n"
+        expected_dot_contents += "}"
 
         with open(dot_file_path, 'r') as dot_file:
             actual_dot_contents = dot_file.read()
