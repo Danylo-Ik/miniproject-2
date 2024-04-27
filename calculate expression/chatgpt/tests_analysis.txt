@@ -1,0 +1,20 @@
+_____________ Prompt 1 _____________
+can you please write unittest and cover all edge tests:
+... code ...
+
+_____________ Result _____________
+
+ - Passed tests: 10/10
+ - Total coverage: 90%
+ - No tests for error list out of range and if input is invalid 
+
+
+_____________ Prompt 2 _____________
+also include cases for unittest when list out of range 
+and if invalid input based on the code I provided
+
+_____________ Result _____________
+
+ - Passed tests: 11/12
+ - Total coverage: 100%
+ - after correcting the code, all tests passed

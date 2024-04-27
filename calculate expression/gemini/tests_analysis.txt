@@ -1,0 +1,64 @@
+_____________ Prompt 1 _____________
+can you please write unittest and cover all edge tests:
+... code ...
+
+_____________ Result _____________
+
+ - Passed tests: 4/6
+ - Total coverage: 94%
+ - made a mistake because it believed that this task 
+should take into account the priority of operations
+
+
+_____________ Prompt 2 _____________
+in this code you do not need to take into account the priority of operations and also add cases when we have list out of range 
+and if invalid input based on the code I provided
+
+_____________ Result _____________
+
+ - Passed tests: 7/7
+ - Total coverage: 94%
+ - No tests for error list out of range and if input is invalid 
+
+
+_____________ Prompt 3 _____________
+also include cases for unittest when list out of range 
+and if invalid input based on the code I provided
+
+_____________ Result _____________
+
+ - Passed tests: 9/9
+ - Total coverage: 97%
+ - No test when input is not string
+
+
+_____________ Prompt 3 _____________
+cover all edge test
+
+_____________ Result _____________
+
+ - Passed tests: 12/12
+ - Total coverage: 97%
+ - No test when input is not string
+
+
+_____________ Prompt 4 _____________
+add test when input is not string
+
+_____________ Result _____________
+
+ - Passed tests: 12/12
+ - Total coverage: 97%
+ - No test when input is not string
+
+
+_____________ Prompt 5 _____________
+add test when input is not string
+
+_____________ Result _____________
+
+ - Passed tests: 12/12
+ - Total coverage: 100%
+ - Unfortunately, all the time he threw the same code, 
+no matter how many times I asked him to redo it
+

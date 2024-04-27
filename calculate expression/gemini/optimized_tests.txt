@@ -1,0 +1,42 @@
+class TestCalculateExpression(unittest.TestCase):
+
+    def test_simple_addition(self):
+        self.assertEqual(calculate_expression("Скільки буде 2 додати 3?"), 5)
+
+    def test_simple_subtraction(self):
+        self.assertEqual(calculate_expression("Скільки буде 5 відняти 2?"), 3)
+
+    def test_simple_multiplication(self):
+        self.assertEqual(calculate_expression("Скільки буде 4 помножити на 3?"), 12)
+
+    def test_simple_division(self):
+        self.assertEqual(calculate_expression("Скільки буде 10 поділити на 2?"), 5)
+
+    def test_invalid_expression(self):
+        self.assertEqual(calculate_expression("Скільки буде 2 3 +?"), "Неправильний вираз!")  # Invalid number of operands
+        self.assertEqual(calculate_expression("Скільки буде hello world?"), "Неправильний вираз!")  # Invalid operand
+
+    def test_missing_operand(self):
+        self.assertEqual(calculate_expression("Скільки буде 2 +"), "Неправильний вираз!")  # Missing operand after operator
+        self.assertEqual(calculate_expression("Скільки буде + 2"), "Неправильний вираз!")  # Operator at the beginning
+
+    def test_division_by_zero(self):
+        self.assertEqual(calculate_expression("Скільки буде 2 * 3 / 0?"), "Неправильний вираз!")
+
+    # New tests for invalid input
+    def test_empty_expression(self):
+        self.assertEqual(calculate_expression(""), "Неправильний вираз!")  # Empty string
+        self.assertEqual(calculate_expression(12), "Неправильний вираз!")
+
+    def test_single_operand(self):
+        self.assertEqual(calculate_expression("Скільки буде 5"), 5)  # Single operand is valid
+
+    def test_multiple_operators(self):
+        self.assertEqual(calculate_expression("Скільки буде 2 ++ 3"), "Неправильний вираз!")  # Two consecutive operators
+        self.assertEqual(calculate_expression("Скільки буде 2 + - 3"), "Неправильний вираз!")  # Two operators without operand
+
+    def test_leading_operator(self):
+        self.assertEqual(calculate_expression("Скільки буде * 2 + 3"), "Неправильний вираз!")  # Leading operator
+
+    def test_trailing_operator(self):
+        self.assertEqual(calculate_expression("Скільки буде 2 + 3 *"), "Неправильний вираз!")  # Trailing operator
